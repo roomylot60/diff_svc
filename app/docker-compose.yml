@@ -1,0 +1,29 @@
+# app/docker-compose.yml
+version: "3.9"
+
+services:
+  svcover:
+    build: .
+    container_name: svcover
+    ipc: host
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+      - ./models:/workspace/models
+      - ./data:/workspace/data
+      - ./features:/workspace/features
+      - ./outputs:/workspace/outputs
+    environment:
+      - TZ=Asia/Seoul
+      - HF_HOME=/workspace/.cache/huggingface
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    # 필요 시 컨테이너 시작과 동시에 특정 명령 실행 가능
+    # command: ["bash", "-lc", "python scripts/07_train_diffsvc.py --config configs/train_44100.yaml"]

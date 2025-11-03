@@ -1,0 +1,47 @@
+# ===== 기본 시스템 =====
+numpy>=1.24.0
+scipy>=1.11.0
+pandas>=2.2.0
+tqdm>=4.66.0
+pyyaml>=6.0
+matplotlib>=3.7.0
+scikit-learn>=1.4.0
+
+# ===== 오디오/신호 처리 =====
+librosa>=0.10.1
+soundfile>=0.12.1
+resampy>=0.4.3
+numba>=0.58.0
+llvmlite>=0.41.0
+sox>=1.4.1
+audioread>=3.0.0
+
+# ===== PyTorch + 확산 모델/딥러닝 =====
+torch>=2.3.0
+torchaudio>=2.3.0
+torchvision>=0.18.0
+
+# ===== Feature Extractors =====
+# ContentVec / HuBERT (fairseq 기반)
+fairseq==0.12.2
+# RMVPE용 추론 모듈 (pitch 추출)
+torchcrepe>=0.0.22
+
+# ===== 보코더(HiFi-GAN) =====
+# 보통 별도의 레포에서 불러오지만, 기본 의존성만 설치
+einops>=0.7.0
+
+# ===== 로깅/학습 유틸 =====
+tensorboard>=2.15.0
+tensorboardX>=2.6
+sentencepiece>=0.1.99
+omegaconf>=2.3.0
+
+# ===== 추가 유틸 =====
+# (필요 시 python-dotenv로 .env 자동 로드)
+python-dotenv>=1.0.1
+
+# ===== 선택 사항 =====
+# 시각화 및 디버깅
+jupyterlab>=4.2.0
+notebook>=7.2.0

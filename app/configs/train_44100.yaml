@@ -1,0 +1,27 @@
+sr: 44100
+hop: 512
+win: 1024
+n_mels: 80
+features:
+  content_dim: 768   # ContentVec base 기준 예시
+  f0: true
+  loudness: true
+  speaker_embed: false  # 단일 화자 세팅이면 false
+f0:
+  method: rmvpe
+train:
+  batch_size: 1
+  accum_steps: 2
+  steps: 200000
+  lr: 2e-4
+  amp: true
+  ckpt_dir: models/diffsvc
+data:
+  manifest: configs/train_manifest.jsonl
+loss:
+  mel: 1.0
+  stft: 1.0
+  # 필요 시 추가 손실 항목
+
+inference:
+  steps: 120   # 역확산 스텝 (품질↔속도 균형)
